@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Romina Herrera{% endblock %}
+{% block background %}{% load static %}{% static 'core/img/portfolio.png' %}{% endblock %}
+{% comment %} {%block heders%}
+<h1>Portafolio</h1>
+{%endblock%} {% endcomment %}
+{% block heders %}
+    <h1 style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Portafolio</h1>
+{% endblock %}
+{% block content %}
+    {% for proyect in proyects %}
+    {% comment %} <div class="row project">  	 {% endcomment %}
+        <div class="row project mx-3"> 
+                <div class="col-lg-3 col-md-4 offset-lg-1">
+                    <!-- Etiqueta de video -->
+                    <video class="img-fluid" width="100%" height="auto" controls>
+                        <source src="{{ proyect.media.url }}" type="video/mp4">
+                    </video>
+                </div>
+            <div class="col-lg-7 col-md-8">
+                <h3 class="section-heading title">{{ proyect.title }}</h3>   
+                <p>{{ proyect.descripcion }}</p>
+                {% comment %}<p><a href="http://google.com">Más información</a></p>{% endcomment %}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% load static %}
